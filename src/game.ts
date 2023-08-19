@@ -1,11 +1,12 @@
 import { ALL_ACTIONS, Action, handleRPS } from './state'
+import { randomElement } from './utils'
 
 function getPlayerAction(): Promise<Action> {
   return Promise.resolve('slash')
 }
 
 function getEnemyAction(): Promise<Action> {
-  return Promise.resolve(ALL_ACTIONS[Math.floor(Math.random() * ALL_ACTIONS.length)])
+  return Promise.resolve(randomElement(ALL_ACTIONS))
 }
 
 async function game() {
